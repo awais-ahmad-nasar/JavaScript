@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #212121; color: #fff ;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+
+    </div>
+</body>
+
+<script>
+    const parent = document.querySelector('.parent')
+    console.log(parent);    // by this you get all days in chrome>inspect>console> 
+    console.log(parent.children);  // if you do that you'll get HTMLCollection which means its array like element
+    console.log(parent.children[1]);  // <div class="day">Tuesday</div>
+    console.log(parent.children[1].innerHTML);   // Tuesday
+
+
+
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML);
+        
+    }
+    /*
+    <><><>OUTPUT of above loop<><><><><>
+        Monday       two.html:64
+        Tuesday      two.html:64 
+        Wednesday    two.html:64 
+        Thursday     two.html:64 
+    */
+
+
+
+    parent.children[1].style.color = "orange"
+    console.log(parent.firstElementChild);   // <div class="day">Monday</div>      two.html:75
+    console.log(parent.lastElementChild);     // <div class="day">Thursday</div>   two.html:76
+    
+
+
+    const day1 = document.querySelector('.day')
+    console.log(day1);                          // <div class="day">Monday</div>      two.html:80
+    console.log(day1.nextElementSibling);       // <div class="day">Tuesday</div>     two.html:98 
+    console.log(day1.parentElement);
+    /*
+    <><><>OUTPUT<><><>
+    <div class="parent">              two.html:80        
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+
+    </div>
+    */
+
+
+    console.log("NODES : ", parent.childNodes);       // you wil get NodeList
+</script>
+
+</html>

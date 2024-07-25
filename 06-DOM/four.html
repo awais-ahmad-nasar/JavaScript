@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff ;">
+    <ul class="language">
+        <li>JavaScript</li>
 
+
+    </ul>
+    
+</body>
+
+<script>
+    function addLanguage(langName){
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    
+    }
+    addLanguage("Python")    // we are doing full tree traverse , for big project innerHTML technique not good
+    addLanguage("TypeScript")
+
+    function addLanguageByOptimizedWay(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguageByOptimizedWay('R')    // we are not doing full tree traverse
+    addLanguageByOptimizedWay('GoLang')
+    
+
+    // ***************NOW How to EDIT values?****************************
+    const Changelang=document.querySelector("li:nth-child(2)")
+    //Changelang.innerHTML = "Mojo"      // not good , not optimized approach
+    const newLi = document.createElement('li')
+    newLi.textContent = "Mojo"
+    Changelang.replaceWith(newLi)
+
+
+    const Changelang1=document.querySelector("li:first-child")
+    //Changelang1.outerHTML = "Java"
+    const newLi1 = document.createElement('li')
+    newLi1.textContent = "Java"
+    Changelang1.replaceWith(newLi1)
+
+    // ***************NOW How to REMOVE values?****************************
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()    // GoLang will be removed
+    
+
+
+</script>
+</html>

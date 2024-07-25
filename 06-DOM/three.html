@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff ;">
+    
+</body>
+
+<script>
+    const div = document.createElement('div')
+    console.log(div);         // <div></div>    three.html:52  
+    div.className = "main"
+    div.id = Math.round(Math.random()*10 + 1)   // +1 is used for , zero element shouldn't be come 
+
+    div.setAttribute("title","Awais Git")     // <div class="main" id="3" title="Awais Git"></div>       three.html:52
+    div.style.backgroundColor = "green"
+    div.style.padding = "10px"
+
+    //div.innerText = "Awais JS practice"    // <div class="main" id="3" title="Awais Git" style="background-color: green; padding: 10px;">Awais JS practice</div>
+    const addText = document.createTextNode("Awais JS practice")
+    div.appendChild(addText)
+
+
+    // Now attach on document : mean to say now its time to show all things on web
+    document.body.appendChild(div)
+    
+
+
+</script>
+</html>
