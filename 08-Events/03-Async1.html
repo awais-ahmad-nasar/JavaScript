@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Awais And Code</h1>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+
+    setTimeout(function(){
+        console.log("Awais");
+    },2000);
+//.............................................................................................................................
+
+    const sayAwais=function(){
+        console.log("Awais");
+    }
+    setTimeout(sayAwais,2000)
+
+//.............................................................................................................................
+    const changeText=function(){
+        document.querySelector('h1').
+        innerHTML="Best J.S Series"
+    }
+    setTimeout(changeText,5000)   // text will change from Awais*** to Best***
+
+
+//.............................................................................................................................
+const changeText1=function(){
+        document.querySelector('h1').innerHTML="Best J.S Series"
+    }
+    const ChangeMe=setTimeout(changeText1,5000)
+    document.querySelector('#stop').addEventListener('click',function() {
+        clearTimeout(ChangeMe)    // actually it stops the setTimeout Event by pressing stop button
+        console.log("STOPED");
+    });
+
+</script>
+</html>

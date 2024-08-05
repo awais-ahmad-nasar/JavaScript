@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Awais And Code</h1>
+    <button id="start" style="margin-right: 10px;">Start</button>
+    <button id="stop">Stop</button>
+    
+
+    
+</body>
+
+<script>
+    const sayDate=function(){
+        console.log("Awais",Date.now());
+    }
+    setInterval(sayDate,1000)
+//..........................................................................................................................................................
+
+    const sayDate=function(str){
+        console.log(str,Date.now());
+    }
+    setInterval(sayDate,1000,"Hi")
+
+//..........................................................................................................................................................
+
+    const sayDate=function(str){
+        console.log(str,Date.now());
+    }
+    const intervalID=setInterval(sayDate,1000,"Hi")
+    clearInterval(intervalID)   // in above codes it contineously printing ,but this will clear all 
+ 
+
+//..........................................................................................................................................................
+
+    let intervalId;
+
+    function sayDate() {
+        console.log("Awais", new Date().toLocaleString());
+    }
+
+    document.getElementById('start').addEventListener('click', function() {
+        if (!intervalId) {
+            console.log("Started");
+            intervalId = setInterval(sayDate, 1000);
+        }
+    });
+
+    document.getElementById('stop').addEventListener('click', function() {
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+            console.log("Stopped");
+        }
+    });
+
+</script>
+</html>
+
+
+
+<!--PROJECT 6 is the best Example to understand Async-->>

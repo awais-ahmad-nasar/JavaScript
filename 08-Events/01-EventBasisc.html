@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
 
+    //..............1st Approach..............
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+
+
+    //..............2nd Approach..............
+    // document.getElementById('owl').addEventListener('click',function () {
+    //     alert("Owl Clicked Again")
+    // },false)         // 3rd parameter is byDefault false you don't need tp put
+    
+
+    // 3rd Approach : attachEvent()
+    // 4th Appraoch : jQuery - on
+
+
+
+//......................................................................................................................................................................................
+            
+    // document.getElementById('owl').addEventListener('click',function () {
+    //     console.log(e);   // Go to web , inspect , Console , Click on owl , information shown on Console
+    // },false)
+
+    /*
+    .....................Study About these Event's in addEventListener.....................
+    type, timestamp, defaultPrevented
+    target, toElement, srcElement, currentTarget,
+    clientX, clientY, screenX, screenY
+    altkey, ctrlkey, shiftkey, keyCode
+    */
+
+
+//......................................................................................................................................................................................
+
+
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    // }, false)
+
+    /*
+    Go to web , inspect , Console , Click on owl , information shown on Console
+    Event Propagation has two context : 
+    1) Event Bubbling  (3rd param  : false) >>>>>>>>>> it gives : from bottom to top i.e ('owl clicked') then ('clicked inside the ul' )
+    2) Event Capturing (3rd param  : true) >>>>>>>>>>  it gives : from top to bottom i.e ('clicked inside the ul') then ('owl clicked' )
+    
+    */
+
+    //.................................
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation()  // if you don't want bubbling AND it'll show only ('owl clicked') on console
+    // }, false)
+    
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+    // }, false)
+   
+//......................................................................................................................................................................................
+
+// Click in images then your images got disappear in below code    
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    
+        
+    })
+    
+    //removeIt.parentNode.removeChild(removeIt)
+</script>
+</html>

@@ -1,0 +1,13 @@
+
+
+>>>>> Javascript byDefault is Synchronus , single threaded 
+>>>>> Blocking Code : means block the flow of the program >> Read file Sync
+>>>>> Non-Blocking Code : means doesn't block the execution >> Read file Async
+>>>>> Async : in this we have fetch() , called Promises/High-priority Queue
+>>>>> PROJECT 6 is the best Example to understand Async
+
+>>>>> Async way's given below:
+   1) setInterval
+   2) setTimeout
+   3) clearInterval
+   4) clearTimeout
