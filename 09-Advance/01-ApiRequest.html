@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
 
+<script>
+    const requestURL='https://api.github.com/users/awais-ahmad-nasar'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',requestURL);
+    xhr.onreadystatechange = function() {
+        console.log(xhr.readyState);
+    }
+    xhr.send();
+//...........................................................................................................................................
+
+    const requestURL1='https://api.github.com/users/awais-ahmad-nasar'
+    const xhr1 = new XMLHttpRequest();
+    xhr1.open('GET',requestURL1);
+    xhr1.onreadystatechange = function() {
+        console.log(xhr1.readyState);
+        if(xhr1.readyState ===4){
+            console.log(this.responseText);
+        }
+    }
+    xhr1.send();
+
+
+
+
+//...........................................................................................................................................
+    // checking followers
+    const requestURL2='https://api.github.com/users/awais-ahmad-nasar'
+    const xhr2 = new XMLHttpRequest();
+    xhr2.open('GET',requestURL2);
+    xhr2.onreadystatechange = function() {
+        console.log(xhr2.readyState);
+        if(xhr2.readyState ===4){
+            // const data = this.responseText
+            // console.log(typeof data);      // string
+            const data = JSON.parse(this.responseText)    // .parse change string into JSON
+            console.log(typeof data);    // object
+            console.log(data.followers);   // 1
+        }
+    }
+    xhr2.send();
+
+</script>
+
+</html>

@@ -1,0 +1,37 @@
+<!--Bind means attach al functionalities i.e bind(this) used below -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REACT</title>
+</head>
+
+<body>
+    <button>Click</button>
+    
+</body>
+
+<script>
+    class React{
+        constructor(){
+            this.library = "REACT"
+            this.server = "https://localhost:300"
+
+            // Requirement : when page load , an object should be create on  page
+            document.querySelector('button').addEventListener('click',this.handleClick)
+            bind(this)
+        }
+        handleClick(){
+            console.log("Button is CLicked");
+            console.log(this.server);
+            
+            
+        }
+    }
+    const app = new React()
+
+</script>
+
+</html>
