@@ -1,0 +1,94 @@
+<!--
+
+>>>> Closures: 
+    it's a combination of a funtions bundled together with 
+    reference to it's surrounding state(lexical env).In other words
+    it gives you access to outer function's scope from inner Func.
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Closures And Code</title>
+</head>
+<body style="background-color:  #313131;">
+    <button id="orange-button">Orange</button>
+    <button id="green-button">Green</button>
+    
+
+<script>
+    // Extra Work to Give some information 
+
+    // function outer(){
+    //   let username="Awais"
+    //   function innerOne(){
+    //     let secretNumber = "123ABC"
+    //     console.log("Inner Func 1 : ",username);
+        
+    //   }
+    //   function innerTwo(){
+    //     console.log("Inner Func 2 : ",username);
+    //     console.log(secretNumber);    // in this case inner1 don't give access to inner2
+        
+    //   }
+    //   innerOne()     // in this case username can be accessable from outer all variables declared i.e child Func can access parent Func
+    //   innerTwo()  //  in this it can also use username 
+    // }
+    // console.log(username);   // this can't be call coz username can't be accessable 
+    
+
+//..........................................................................................................................................................................................
+
+//   function init() {
+//       var name = "Mozilla"; // name is a local variable created by init
+//         function displayName() {
+//           console.log(name); // use variable declared in the parent function
+//         }
+//       displayName();
+//     }
+//   init();
+
+//..........................................................................................................................................................................................
+
+// function makeFunc() {
+//     const name = "Mozilla 2";
+//     function displayName() {
+//         console.log(name);
+//     }
+//     return displayName;        // it will return not only display** Func it will return outer Func also >> It Means not only one thing it reutrn whole Lexical scope 
+// }
+
+// const myFunc = makeFunc();
+// myFunc();
+
+  
+</script> 
+
+<script>
+    // document.getElementById("orange-button").onclick=function(){
+    //     document.body.style.backgroundColor = "orange"
+    // }
+    // document.getElementById("green-button").onclick=function(){
+    //     document.body.style.backgroundColor = "green"
+    // }
+
+    // Above code is simple Now Generic Code is below,
+
+    function ClickHandler(color){
+        //document.body.style.backgroundColor = `${color}`      // avoid this , coz it will show only 1 color default without pressing button 
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+        }      
+    
+    document.getElementById('orange-button').onclick=ClickHandler("orange")
+    document.getElementById('green-button').onclick=ClickHandler("green")
+    
+</script>
+
+</body>
+</html>
